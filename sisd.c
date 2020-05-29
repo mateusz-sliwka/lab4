@@ -7,37 +7,36 @@ static double add(vector number1[], vector number2[], int numberOfNumbers, int r
     finaltime = 0;
     for (int i = 0; i < repetitions; i++)
         for (int j = 0; j < numberOfNumbers; j++) {
-            vector x = number1[j];
-            vector y = number2[j];
+             
             vector result;
-            start = clock();
+     start = clock();
             asm(
                 "fld %1\n"
                 "fadd %2\n"
                 "fstp %0\n"
                 : "=m"(result.a)
-                : "m"(x.a), "m"(y.a)
+                : "m"(number1[j].a), "m"(number2[j].a)
             );
             asm(
                 "fld %1\n"
                 "fadd %2\n"
                 "fstp %0\n"
                 : "=m"(result.b)
-                : "m"(x.b), "m"(y.b)
+                : "m"(number1[j].b), "m"(number2[j].b)
             );
             asm(
                 "fld %1\n"
                 "fadd %2\n"
                 "fstp %0\n"
                 : "=m"(result.c)
-                : "m"(x.c), "m"(y.c)
+                : "m"(number1[j].c), "m"(number2[j].c)
             );
             asm(
                 "fld %1\n"
                 "fadd %2\n"
                 "fstp %0\n"
                 : "=m"(result.d)
-                : "m"(x.d), "m"(y.d)
+                : "m"(number1[j].d), "m"(number2[j].d)
             );
             stop = clock();
             steptime = (double) (stop - start) / CLOCKS_PER_SEC;
@@ -50,37 +49,37 @@ static double sub(vector number1[], vector number2[], int numberOfNumbers, int r
     finaltime = 0;
     for (int i = 0; i < repetitions; i++)
         for (int j = 0; j < numberOfNumbers; j++) {
-            vector x = number1[j];
-            vector y = number2[j];
+            
+            
             vector result;
-            start = clock();
+             start = clock();
             asm(
                 "fld %1\n"
                 "fsub %2\n"
                 "fstp %0\n"
                 : "=m"(result.a)
-                : "m"(x.a), "m"(y.a)
+                : "m"(number1[j].a), "m"(number2[j].a)
             );
             asm(
                 "fld %1\n"
                 "fsub %2\n"
                 "fstp %0\n"
                 : "=m"(result.b)
-                : "m"(x.b), "m"(y.b)
+                : "m"(number1[j].b), "m"(number2[j].b)
             );
             asm(
                 "fld %1\n"
                 "fsub %2\n"
                 "fstp %0\n"
                 : "=m"(result.c)
-                : "m"(x.c), "m"(y.c)
+                : "m"(number1[j].c), "m"(number2[j].c)
             );
             asm(
                 "fld %1\n"
                 "fsub %2\n"
                 "fstp %0\n"
                 : "=m"(result.d)
-                : "m"(x.d), "m"(y.d)
+                : "m"(number1[j].d), "m"(number2[j].d)
             );
             stop = clock();
             steptime = (double) (stop - start) / CLOCKS_PER_SEC;
@@ -93,37 +92,37 @@ static double mult(vector number1[], vector number2[], int numberOfNumbers, int 
     finaltime = 0;
     for (int i = 0; i < repetitions; i++)
         for (int j = 0; j < numberOfNumbers; j++) {
-            vector x = number1[j];
-            vector y = number2[j];
+            
+              start = clock();
             vector result;
-            start = clock();
+          
             asm(
                 "fld %1\n"
                 "fmull %2\n"
                 "fstp %0\n"
                 : "=m"(result.a)
-                : "m"(x.a), "m"(y.a)
+                : "m"(number1[j].a), "m"(number2[j].a)
             );
             asm(
                 "fld %1\n"
                 "fmull %2\n"
                 "fstp %0\n"
                 : "=m"(result.b)
-                : "m"(x.b), "m"(y.b)
+                : "m"(number1[j].b), "m"(number2[j].b)
             );
             asm(
                 "fld %1\n"
                 "fmull %2\n"
                 "fstp %0\n"
                 : "=m"(result.c)
-                : "m"(x.c), "m"(y.c)
+                : "m"(number1[j].c), "m"(number2[j].c)
             );
             asm(
                 "fld %1\n"
                 "fmull %2\n"
                 "fstp %0\n"
                 : "=m"(result.d)
-                : "m"(x.d), "m"(y.d)
+                : "m"(number1[j].d), "m"(number2[j].d)
             );
             stop = clock();
             steptime = (double) (stop - start) / CLOCKS_PER_SEC;
@@ -136,38 +135,40 @@ static double divv(vector number1[], vector number2[], int numberOfNumbers, int 
     finaltime = 0;
     for (int i = 0; i < repetitions; i++)
         for (int j = 0; j < numberOfNumbers; j++) {
-            vector x = number1[j];
-            vector y = number2[j];
+            
+            
+              
+            
             vector result;
-            //cialo dodawania simd
-            start = clock();
+          start = clock();
+         
             asm(
                 "fld %1\n"
                 "fdiv %2\n"
                 "fstp %0\n"
                 : "=m"(result.a)
-                : "m"(x.a), "m"(y.a)
+                : "m"(number1[j].a), "m"(number2[j].a)
             );
             asm(
                 "fld %1\n"
                 "fdiv %2\n"
                 "fstp %0\n"
                 : "=m"(result.b)
-                : "m"(x.b), "m"(y.b)
+                : "m"(number1[j].b), "m"(number2[j].b)
             );
             asm(
                 "fld %1\n"
                 "fdiv %2\n"
                 "fstp %0\n"
                 : "=m"(result.c)
-                : "m"(x.c), "m"(y.c)
+                : "m"(number1[j].c), "m"(number2[j].c)
             );
             asm(
                 "fld %1\n"
                 "fdiv %2\n"
                 "fstp %0\n"
                 : "=m"(result.d)
-                : "m"(x.d), "m"(y.d)
+                : "m"(number1[j].d), "m"(number2[j].d)
             );
             stop = clock();
             steptime = (double) (stop - start) / CLOCKS_PER_SEC;
@@ -178,7 +179,7 @@ static double divv(vector number1[], vector number2[], int numberOfNumbers, int 
 
 void testSISD(vector number1[], vector number2[], int numberOfNumbers, int repetitions) {
 	FILE *file = fopen("wyniki.txt","a");
-	fprintf(file,"\nTyp obliczen: SISD\n");
+	fprintf(file,"\nWyniki obliczen: SISD\n");
     fprintf(file,"Liczba liczb: %d\n", numberOfNumbers);
     fprintf(file,"Sredni czas [s]:\n");
     fprintf(file,"+ %.6f\n", add(number1, number2, numberOfNumbers, repetitions));
